@@ -1,0 +1,90 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Habit Journal
+{% endblock%}
+
+{% block main %}
+
+<h2>Your Habits</h2>
+
+<form action="/habits" method="post" class="mb-4">
+    <div class="mb-2">
+        <input class="form-control" name="name" placeholder="Habit" required>
+    </div>
+
+    <div class="mb-2">
+        <select class="form-select" name="frequency" required>
+            <option disabled selected>Frequency</option>
+            <option value="Daily">Daily</option>
+            <option value="Weekly">Weekly</option>
+            <option value="Monthly">Monthly</option>
+        </select>
+    </div>
+
+    <div class="mb-2">
+        <select class="form-select" name="preferred_time" required>
+            <option disabled selected>Preferred time</option>
+            <option value="Morning">Morning</option>
+            <option value="Afternoon">Afternoon</option>
+            <option value="Night">Night</option>
+        </select>
+    </div>
+
+    <div class="mb-2">
+        <select class="form-select" name="importance" required>
+            <option disabled selected>Importance</option>
+            <option value="1">1 (Low)</option>
+            <option value="2">2</option>
+            <option value="3">3 (Medium)</option>
+            <option value="4">4</option>
+            <option value="5">5 (High)</option>
+        </select>
+    </div>
+
+    <button class="btn btn-primary">Add Habit</button>
+</form>
+
+<hr>
+{% if habits %}
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Frequency</th>
+            <th>Preferred Time</th>
+            <th>Importance</th>
+            <th>Action</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for habit in habits %}
+        <tr>
+            <td>{{ habit.name }}</td>
+            <td>{{ habit.frequency }}</td>
+            <td>{{ habit.preferred_time }}</td>
+            <td>{{ habit.importance }}</td>
+            <td><a class="btn btn-sm btn-outline-danger" href="/log/{{ habit.id }}">
+                    Log Failure
+                </a></td>
+            <td>
+                <form action="/delete/{{ habit.id }}" method="post" class="d-inline">
+                    <button class="btn btn-sm btn-outline-secondary">
+                        Delete
+                    </button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% else %}
+<div class="alert alert-info">
+    No habits yet. Create your first habit to begin tracking.
+</div>
+{% endif %}
+
+
+{% endblock %}

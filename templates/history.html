@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+
+{%block title%}
+History
+{%endblock%}
+
+
+{% block main %}
+<h3>Failure History</h3>
+
+
+{% if rows %}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Habit</th>
+            <th>Date</th>
+            <th>Reason</th>
+            <th>Note</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in rows %}
+        <tr>
+            <td>{{ row.name }}</td>
+            <td>{{ row.date }}</td>
+            <td>{{ row.reason }}</td>
+            <td>{{ row.note }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<div class="alert alert-secondary">
+    No failures logged yet. That’s a good sign.
+</div>
+{% endif %}
+
+{% endblock %}

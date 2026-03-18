@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+
+{%block title%}
+Summary
+{%endblock%}
+
+{% block main %}
+<h3>Weekly Summary</h3>
+
+<p>
+    This week you logged <strong>{{ total }}</strong> failures.
+</p>
+
+{% if top_reason %}
+<p>
+    Most common reason: <strong>{{ top_reason }}</strong>
+</p>
+{% else %}
+<p>
+    No failures logged this week.
+</p>
+{% endif %}
+
+{% endblock %}

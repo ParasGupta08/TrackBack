@@ -1,0 +1,87 @@
+{% extends "layout.html" %}
+
+{%block title%}
+Analytics
+{%endblock%}
+
+
+{% block main %}
+<h2 class="mb-4">Analytics</h2>
+
+<!-- ========================= -->
+<!-- Failures per Habit -->
+<!-- ========================= -->
+<div class="mb-5">
+    <h4>Failures per Habit</h4>
+    <p class="text-muted">
+        Shows which habits break most often. Higher counts indicate habits that need attention.
+    </p>
+
+    {% if failures_per_habit %}
+    <table class="table table-bordered table-hover">
+        <thead class="table-light">
+            <tr>
+                <th>Habit</th>
+                <th>Total Failures</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in failures_per_habit %}
+            <tr>
+                <td>{{ row.name }}</td>
+                <td>
+                    {% if row.count == 0 %}
+                        <span class="text-success">0</span>
+                    {% else %}
+                        <span class="text-danger">{{ row.count }}</span>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+        <div class="alert alert-secondary">
+            No failure data available yet.
+        </div>
+    {% endif %}
+</div>
+
+<hr>
+
+<!-- ========================= -->
+<!-- Failure Reasons -->
+<!-- ========================= -->
+<div class="mb-5">
+    <h4>Failure Reasons</h4>
+    <p class="text-muted">
+        Identifies the most common causes behind habit failures.
+    </p>
+
+    {% if reasons %}
+    <table class="table table-bordered table-hover">
+        <thead class="table-light">
+            <tr>
+                <th>Reason</th>
+                <th>Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in reasons %}
+            <tr>
+                <td>{{ row.reason }}</td>
+                <td>
+                    <span class="fw-semibold">{{ row.count }}</span>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+        <div class="alert alert-secondary">
+            No failure reasons logged yet.
+        </div>
+    {% endif %}
+</div>
+
+{% endblock %}

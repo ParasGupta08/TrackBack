@@ -1,0 +1,126 @@
+/* =========================
+   Global Font & Layout
+   ========================= */
+
+/* =========================
+   Used LLM to centralise the content and change the font.
+   ========================= */
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f9fafb;
+    color: #111827;
+}
+
+/* Center main content nicely */
+main.container {
+    max-width: 900px;
+    text-align: center;
+}
+
+/* =========================
+   Headings
+   ========================= */
+
+h1, h2, h3, h4, h5 {
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+
+p {
+    font-weight: 400;
+    color: #4b5563;
+}
+
+/* =========================
+   Forms
+   ========================= */
+
+form {
+    margin-top: 1rem;
+}
+
+/* Keep inputs centered but readable */
+.form-control,
+.form-select {
+    text-align: center;
+    font-weight: 500;
+}
+
+/* Buttons */
+button,
+.btn {
+    font-weight: 600;
+    letter-spacing: 0.2px;
+}
+
+/* =========================
+   Tables
+   ========================= */
+
+table {
+    margin: 1.5rem auto;
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Table headers */
+thead {
+    background-color: #f3f4f6;
+    font-weight: 600;
+}
+
+/* Center table text */
+table th,
+table td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+/* Hover effect */
+.table-hover tbody tr:hover {
+    background-color: #f9fafb;
+}
+
+/* =========================
+   Alerts & Empty States
+   ========================= */
+
+.alert {
+    max-width: 600px;
+    margin: 1.5rem auto;
+    font-weight: 500;
+}
+
+/* =========================
+   Navbar
+   ========================= */
+
+.navbar-brand {
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* =========================
+   Subtle Enhancements
+   ========================= */
+
+/* Card-like sections */
+.section-box {
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+/* Links */
+a {
+    text-decoration: none;
+    font-weight: 500;
+}
+
+a:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+
+{%block title%}
+Log Failure
+{%endblock%}
+
+
+
+{% block main %}
+<h3>Log Failure: {{ habit.name }}</h3>
+
+<form method="post">
+    <div class="mb-3">
+        <select class="form-select" name="reason" required>
+            <option disabled selected>Failure reason</option>
+            <option value="Distraction">Distraction</option>
+            <option value="Fatigue">Fatigue</option>
+            <option value="Poor Planning">Poor Planning</option>
+            <option value="Low Motivation">Low Motivation</option>
+            <option value="External Interruption">External Interruption</option>
+            <option value="Other">Other</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <textarea
+            class="form-control"
+            name="note"
+            placeholder="Optional note"
+            rows="3"></textarea>
+    </div>
+
+    <button class="btn btn-danger">Log Failure</button>
+</form>
+{% endblock %}
