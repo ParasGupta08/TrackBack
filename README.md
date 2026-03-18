@@ -1,5 +1,5 @@
 # TrackBack
-#### Video Demo:  <URL HERE>
+#### Video Demo:  <https://www.youtube.com/watch?v=GdDaqKalhBo>
 #### Description
 
 TrackBack is a failure-based habit tracking web application built as a final project for CS50.
